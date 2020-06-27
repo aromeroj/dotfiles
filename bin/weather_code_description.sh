@@ -37,11 +37,11 @@ case $1 in
     #311	Light freezing rain	wsymbol_0021_cloudy_with_sleet	wsymbol_0037_cloudy_with_sleet_night
     #308	Heavy rain	wsymbol_0018_cloudy_with_heavy_rain	wsymbol_0034_cloudy_with_heavy_rain_night
     #305	Heavy rain at times	wsymbol_0010_heavy_rain_showers	wsymbol_0026_heavy_rain_showers_night
-    302)
+    302 | 'Moderate rain')
         echo "🌧" # Moderate rain
         ;;
     #299	Moderate rain at times	wsymbol_0010_heavy_rain_showers	wsymbol_0026_heavy_rain_showers_night
-    296)
+    296 | 'Light rain')
         echo "🌧" # Light rain
         ;;
     #293	Patchy light rain	wsymbol_0017_cloudy_with_light_rain	wsymbol_0033_cloudy_with_light_rain_night
@@ -58,19 +58,19 @@ case $1 in
     #182	Patchy sleet nearby	wsymbol_0021_cloudy_with_sleet	wsymbol_0037_cloudy_with_sleet_night
     #179	Patchy snow nearby	wsymbol_0013_sleet_showers	wsymbol_0029_sleet_showers_night
     #176	Patchy rain nearby	wsymbol_0009_light_rain_showers	wsymbol_0025_light_rain_showers_night
-    143)
+    143 | 'Mist')
         echo "🌫" #Mist
         ;;
-    122)
+    122 | 'Overcast')
         echo "☁️" # Overcast
         ;;
-    119)
+    119 | 'Cloudy')
         echo "☁️" # Cloudy
         ;;
-    116)
+    116 | 'Partly cloudy')
         echo "🌥" # Partly Cloudy
         ;;
-    113)
+    113 | 'Clear' | 'Sunny')
         echo "☀️" #Clear/Sunny
         ;;
     *)

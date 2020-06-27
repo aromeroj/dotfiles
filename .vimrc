@@ -19,7 +19,7 @@ let python_highlight_all = 1
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'git@github.com:ycm-core/YouCompleteMe.git'
+Plug 'Valloric/YouCompleteMe'
 Plug 'arzg/vim-colors-xcode'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
