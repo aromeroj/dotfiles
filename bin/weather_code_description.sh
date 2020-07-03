@@ -1,20 +1,21 @@
 #!/bin/bash
 
 # Complete using https://www.compart.com/en/unicode/block/U+1F300
+# https://assets.weatherstack.com/images/wsymbols01_png_64/wsymbol_0009_light_rain_showers.png
 case $1 in
-    #395)
+    #395) # wsymbol_0012_heavy_snow_showers
     #    echo "☃" #Moderate or heavy snow in area with thunder
     #    ;;
-    #392)
+    #392) # wsymbol_0016_thundery_showers
     #    echo "//☃" # Patchy light snow in area with thunder"
     #    ;;
-    #389)
-    #    echo "☔⚡" # Moderate or heavy rain in area with thunder
-    #    ;;
-    #386)
+    389 | 'Thunderstorm' ) # wsymbol_0024_thunderstorms
+        echo "🌩" # Moderate or heavy rain in area with thunder
+        ;;
+    #386) # wsymbol_0016_thundery_showers
     #    echo "☔⚡" # Patchy light rain in area with thunder
     #    ;;
-    #377)
+    #377) # wsymbol_0021_cloudy_with_sleet
     #    echo "☔" Moderate or heavy showers of ice pellets	wsymbol_0021_cloudy_with_sleet	wsymbol_0037_cloudy_with_sleet_night
     #374	Light showers of ice pellets	wsymbol_0013_sleet_showers	wsymbol_0029_sleet_showers_night
     #371	Moderate or heavy snow showers	wsymbol_0012_heavy_snow_showers	wsymbol_0028_heavy_snow_showers_night
@@ -37,7 +38,7 @@ case $1 in
     #311	Light freezing rain	wsymbol_0021_cloudy_with_sleet	wsymbol_0037_cloudy_with_sleet_night
     #308	Heavy rain	wsymbol_0018_cloudy_with_heavy_rain	wsymbol_0034_cloudy_with_heavy_rain_night
     #305	Heavy rain at times	wsymbol_0010_heavy_rain_showers	wsymbol_0026_heavy_rain_showers_night
-    302 | 'Moderate rain')
+    302 | 'Moderate rain') # wsymbol_0018_cloudy_with_heavy_rain
         echo "🌧" # Moderate rain
         ;;
     #299	Moderate rain at times	wsymbol_0010_heavy_rain_showers	wsymbol_0026_heavy_rain_showers_night
@@ -48,7 +49,9 @@ case $1 in
     #284	Heavy freezing drizzle	wsymbol_0021_cloudy_with_sleet	wsymbol_0037_cloudy_with_sleet_night
     #281	Freezing drizzle	wsymbol_0021_cloudy_with_sleet	wsymbol_0037_cloudy_with_sleet_night
     #266	Light drizzle	wsymbol_0017_cloudy_with_light_rain	wsymbol_0033_cloudy_with_light_rain_night
-    #263	Patchy light drizzle	wsymbol_0009_light_rain_showers	wsymbol_0025_light_rain_showers_night
+    263 | 'Patchy light drizzle' | "Shower in vicinity, rain") # wsymbol_0009_light_rain_showers wsymbol_0025_light_rain_showers_night
+        echo "🌦"
+        ;;
     #260	Freezing fog	wsymbol_0007_fog	wsymbol_0007_fog
     #248	Fog	wsymbol_0007_fog	wsymbol_0007_fog
     #230	Blizzard	wsymbol_0020_cloudy_with_heavy_snow	wsymbol_0036_cloudy_with_heavy_snow_night
@@ -58,19 +61,19 @@ case $1 in
     #182	Patchy sleet nearby	wsymbol_0021_cloudy_with_sleet	wsymbol_0037_cloudy_with_sleet_night
     #179	Patchy snow nearby	wsymbol_0013_sleet_showers	wsymbol_0029_sleet_showers_night
     #176	Patchy rain nearby	wsymbol_0009_light_rain_showers	wsymbol_0025_light_rain_showers_night
-    143 | 'Mist')
+    143 | 'Mist') # wsymbol_0006_mist
         echo "🌫" #Mist
         ;;
-    122 | 'Overcast')
+    122 | 'Overcast') # wsymbol_0004_black_low_cloud
         echo "☁️" # Overcast
         ;;
-    119 | 'Cloudy')
+    119 | 'Cloudy' | 'Shower in vicinity') # wsymbol_0003_white_cloud
         echo "☁️" # Cloudy
         ;;
-    116 | 'Partly cloudy')
+    116 | 'Partly cloudy') # wsymbol_0002_sunny_intervals
         echo "🌥" # Partly Cloudy
         ;;
-    113 | 'Clear' | 'Sunny')
+    113 | 'Clear' | 'Sunny') # wsymbol_0001_sunny
         echo "☀️" #Clear/Sunny
         ;;
     *)
