@@ -42,7 +42,7 @@ case $1 in
         echo "🌧" # Moderate rain
         ;;
     #299	Moderate rain at times	wsymbol_0010_heavy_rain_showers	wsymbol_0026_heavy_rain_showers_night
-    296 | 'Light rain')
+    296 | 'Light rain' | 'Light drizzle')
         echo "🌧" # Light rain
         ;;
     #293	Patchy light rain	wsymbol_0017_cloudy_with_light_rain	wsymbol_0033_cloudy_with_light_rain_night
