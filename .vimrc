@@ -14,6 +14,7 @@ set incsearch
 
 set colorcolumn=80
 set background=dark
+set transparency=5
 
 let python_highlight_all = 1
 
@@ -21,6 +22,7 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'Valloric/YouCompleteMe'
 Plug 'arzg/vim-colors-xcode'
+Plug 'morhetz/gruvbox'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-syntastic/syntastic'
@@ -28,8 +30,8 @@ Plug 'vim-syntastic/syntastic'
 call plug#end()
 
 let mapleader = " "
-colorscheme xcodedarkhc
-let g:airline_theme='violet'
+colorscheme gruvbox
+let g:airline_theme='gruvbox'
 
 nnoremap <silent> <Leader>gd :YcmCompleter GoTo<CR>
 nnoremap <silent> <Leader>gf :YcmCompleter FixIt<CR>
