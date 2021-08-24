@@ -6,7 +6,6 @@ set expandtab
 set smartindent
 set number
 set relativenumber
-set nowrap
 set incsearch
 set cursorline
 set showmatch
@@ -14,7 +13,10 @@ set incsearch
 
 set colorcolumn=80
 set background=dark
-set transparency=5
+
+if has("gui_macvim")
+    set transparency=5
+endif
 
 let python_highlight_all = 1
 
