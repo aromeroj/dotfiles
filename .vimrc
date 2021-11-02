@@ -24,7 +24,7 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'Valloric/YouCompleteMe'
 Plug 'arzg/vim-colors-xcode'
-Plug 'morhetz/gruvbox'
+Plug 'gruvbox-community/gruvbox'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-syntastic/syntastic'
