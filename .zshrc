@@ -2,11 +2,13 @@
 autoload -U colors && colors
 
 # Change prompt:
-PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
+PROMPT="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
 
 # History in cache directory:
+HISTFILE=~/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
+setopt appendhistory
 
 # Basic auto/tab complete:
 autoload -U compinit
