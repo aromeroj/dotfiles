@@ -38,6 +38,10 @@ else
   alias lt='ls -ltr --color=auto'
 fi
 
+if type nvim > /dev/null; then
+  alias vim='nvim'
+fi
+
 # Peco history selection
 function peco-history-selection() {
   local tac
