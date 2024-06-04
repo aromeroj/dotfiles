@@ -13,18 +13,22 @@ if [[ ! -f ~/.p10k.zsh ]]; then
   PROMPT="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
 fi
 
-# History in cache directory:
-HISTFILE=~/.zsh_history
-HISTSIZE=10000
+## History file configuration
+[ -z "$HISTFILE" ] && HISTFILE="$HOME/.zsh_history"
+HISTSIZE=50000
 SAVEHIST=10000
-setopt appendhistory
 
-# Basic auto/tab complete:
-autoload -U compinit
-zstyle ':completion:*' menu select
-zmodload zsh/complist
-compinit
-_comp_options+=(globdots)		# Include hidden files.
+## History command configuration
+setopt extended_history       # record timestamp of command in HISTFILE
+setopt hist_expire_dups_first # delete duplicates first when HISTFILE size exceeds HISTSIZE
+setopt hist_ignore_dups       # ignore duplicated commands history list
+setopt hist_ignore_space      # ignore commands that start with space
+setopt hist_verify            # show command with history expansion to user before running it
+setopt inc_append_history     # add commands to HISTFILE in order of execution
+setopt share_history          # share command history data
+
+bindkey "^[[A" history-beginning-search-backward
+bindkey "^[[B" history-beginning-search-forward
 
 if type exa > /dev/null; then
   alias ls='exa'
@@ -42,24 +46,18 @@ if type nvim > /dev/null; then
   alias vim='nvim'
 fi
 
-# Peco history selection
-function peco-history-selection() {
-  local tac
-  if which tac > /dev/null; then
-    tac="tac"
-  else
-    tac="tail -r"
-  fi
-  BUFFER=$(history -1000 | eval $tac | cut -c 8- | peco --query "$LBUFFER")
-  CURSOR=$#BUFFER
-}
-zle -N peco-history-selection
-bindkey '^T' peco-history-selection
+if type fzf > /dev/null; then
+    eval "$(fzf --zsh)"
+fi
 
 export PATH="/usr/local/sbin:$PATH"
 
-if [[ -f /usr/local/opt/powerlevel10k/powerlevel10k.zsh-theme ]]; then
-  source /usr/local/opt/powerlevel10k/powerlevel10k.zsh-theme
+if [[ -f $(brew --prefix)/share/powerlevel10k/powerlevel10k.zsh-theme ]]; then
+    source $(brew --prefix)/share/powerlevel10k/powerlevel10k.zsh-theme
+fi
+
+if [[ -f $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]]; then
+    source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 fi
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
@@ -69,4 +67,6 @@ fi
 ulimit -n 4096
 
 # Load zsh-syntax-highlighting; should be last.
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
+if [[ -f $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]]; then
+    source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+fi
